@@ -31,4 +31,7 @@ export class App {
   // ngStyle aplica estilos CSS inline dinámicamente
   color: string = 'blue'; // Color del texto
   tamanoTexto: string = '20px'; // Tamaño de la fuente
+  
+  // 3. DIRECTIVAS ESTRUCTURALES: Para *ngIf y @if
+  usuarioActivo: boolean = true; // Controla si el usuario está activo
 }

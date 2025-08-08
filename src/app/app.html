@@ -47,3 +47,56 @@
     💡 <strong>Two-Way Data Binding:</strong> Los cambios se ven inmediatamente sin botones
   </p>
 </div>
+
+<!-- 5. DIRECTIVA ESTRUCTURAL *ngIf (DEPRECADO) vs @if (NUEVO) -->
+<!-- Las directivas estructurales modifican la estructura del DOM (agregan/quitan elementos) -->
+
+<!-- VERSIÓN ANTIGUA (DEPRECADA): *ngIf -->
+<div style="margin: 20px 0; padding: 15px; border: 2px solid #ff6b6b; border-radius: 8px; background-color: #fff5f5;">
+  <h4>⚠️ VERSIÓN ANTIGUA (Deprecada):</h4>
+  <p *ngIf="usuarioActivo" style="color: #ff6b6b;">
+    Bienvenido usuario activo (*ngIf)
+  </p>
+  <p *ngIf="!usuarioActivo" style="color: #ff6b6b;">
+    Usuario inactivo (*ngIf)
+  </p>
+</div>
+
+<!-- VERSIÓN NUEVA (RECOMENDADA): @if -->
+<div style="margin: 20px 0; padding: 15px; border: 2px solid #51cf66; border-radius: 8px; background-color: #f8fff9;">
+  <h4>✅ VERSIÓN NUEVA (Recomendada):</h4>
+  @if (usuarioActivo) {
+    <p style="color: #51cf66;">
+      Bienvenido usuario activo (@if)
+    </p>
+  } @else {
+    <p style="color: #51cf66;">
+      Usuario inactivo (@if)
+    </p>
+  }
+</div>
+
+<!-- 6. DIRECTIVA ESTRUCTURAL *ngFor (DEPRECADO) vs @for (NUEVO) -->
+<!-- Crea elementos HTML repetitivos basados en datos -->
+
+<!-- VERSIÓN ANTIGUA (DEPRECADA): *ngFor -->
+<div style="margin: 20px 0; padding: 15px; border: 2px solid #ff6b6b; border-radius: 8px; background-color: #fff5f5;">
+  <h4>⚠️ VERSIÓN ANTIGUA (Deprecada):</h4>
+  <ul>
+    <li *ngFor="let item of ['Angular', 'React', 'Vue']; let i = index" style="color: #ff6b6b;">
+      {{ i + 1 }}. {{ item }} (*ngFor)
+    </li>
+  </ul>
+</div>
+
+<!-- VERSIÓN NUEVA (RECOMENDADA): @for -->
+<div style="margin: 20px 0; padding: 15px; border: 2px solid #51cf66; border-radius: 8px; background-color: #f8fff9;">
+  <h4>✅ VERSIÓN NUEVA (Recomendada):</h4>
+  <ul>
+    @for (item of ['Angular', 'React', 'Vue']; track item; let i = $index) {
+      <li style="color: #51cf66;">
+        {{ i + 1 }}. {{ item }} (@for)
+      </li>
+    }
+  </ul>
+</div>

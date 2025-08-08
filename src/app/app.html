@@ -21,3 +21,29 @@
   </p>
   <!-- Los valores se toman de las propiedades del componente TypeScript -->
 </div>
+
+<!-- 4. TWO-WAY DATA BINDING: Sintaxis [(ngModel)] para sincronización bidireccional -->
+<!-- Conecta el input del usuario con las propiedades del componente -->
+<div style="margin: 20px 0; padding: 15px; border: 2px solid #ccc; border-radius: 8px;">
+  <h3>🎨 Two-Way Data Binding en Acción:</h3>
+  
+  <label for="colorInput">Cambia el color del texto:</label>
+  <input 
+    id="colorInput"
+    [(ngModel)]="color" 
+    placeholder="Escribe un color (ej: red, green, purple)" 
+    style="margin: 0 10px; padding: 5px; border: 1px solid #ccc;"
+  />
+  
+  <label for="sizeInput">Cambia el tamaño del texto:</label>
+  <input 
+    id="sizeInput"
+    [(ngModel)]="tamanoTexto" 
+    placeholder="Escribe un tamaño (ej: 20px, 30px, 50px)" 
+    style="margin: 0 10px; padding: 5px; border: 1px solid #ccc;"
+  />
+  
+  <p style="margin-top: 10px; font-weight: bold;">
+    💡 <strong>Two-Way Data Binding:</strong> Los cambios se ven inmediatamente sin botones
+  </p>
+</div>

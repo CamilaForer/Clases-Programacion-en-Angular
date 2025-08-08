@@ -1,11 +1,25 @@
 import { Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
+// ========================================
+// CONCEPTOS BÁSICOS DE ANGULAR - COMPONENTE
+// ========================================
+
+// @Component es un DECORADOR que define metadatos del componente
+// Los decoradores son funciones que modifican clases, propiedades o métodos
 @Component({
-  selector: 'app-root',
-  imports: [],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  selector: 'app-root', // Selector CSS para usar este componente en otros templates
+  imports: [CommonModule, FormsModule], // Módulos necesarios para las directivas
+  templateUrl: './app.html', // Archivo HTML del template
+  styleUrl: './app.css' // Archivo CSS para estilos
 })
 export class App {
-  saludo = 'Holaaaa este es mi primer proyecto';
+  // ========================================
+  // PROPIEDADES DEL COMPONENTE
+  // Estas variables están disponibles en el template HTML
+  // ========================================
+  
+  // 1. INTERPOLACIÓN: Esta propiedad se muestra en el template con {{saludo}}
+  saludo = 'Holaaaa este es mi primer proyecto en Angular';
 }

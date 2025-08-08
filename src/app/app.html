@@ -5,3 +5,19 @@
 <!-- 1. INTERPOLACIÓN: Sintaxis {{variable}} para mostrar datos del componente en el HTML -->
 <!-- Es la forma más básica de mostrar contenido dinámico -->
 <h1>{{saludo}}</h1>
+
+<!-- 2. PROPERTY BINDING: Sintaxis [propiedad] para enlazar propiedades del DOM -->
+<!-- ngClass es una directiva que aplica clases CSS condicionalmente -->
+<div [ngClass]="{'activo': esActivo, 'error': tieneError}">
+  <!-- Las llaves {} crean un objeto donde las claves son las clases CSS y los valores son booleanos -->
+</div>
+
+<!-- 3. PROPERTY BINDING con ngStyle: Aplica estilos CSS inline dinámicamente -->
+<!-- ngStyle recibe un objeto con propiedades CSS y sus valores -->
+<div style="margin: 20px 0; padding: 15px; background-color: #f5f5f5; border-radius: 8px;">
+  <h4>📝 Texto con estilos dinámicos:</h4>
+  <p [ngStyle]="{'color': color, 'font-size': tamanoTexto}">
+    ¡Este texto cambia en tiempo real! Color: {{color}} | Tamaño: {{tamanoTexto}}
+  </p>
+  <!-- Los valores se toman de las propiedades del componente TypeScript -->
+</div>

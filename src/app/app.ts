@@ -22,4 +22,13 @@ export class App {
   
   // 1. INTERPOLACIÓN: Esta propiedad se muestra en el template con {{saludo}}
   saludo = 'Holaaaa este es mi primer proyecto en Angular';
+  
+  // 2. PROPERTY BINDING: Estas propiedades se usan con [ngClass] y [ngStyle]
+  // ngClass aplica clases CSS condicionalmente
+  esActivo: boolean = true; // Si es true, aplica clase 'activo'
+  tieneError: boolean = false; // Si es true, aplica clase 'error'
+  
+  // ngStyle aplica estilos CSS inline dinámicamente
+  color: string = 'blue'; // Color del texto
+  tamanoTexto: string = '20px'; // Tamaño de la fuente
 }

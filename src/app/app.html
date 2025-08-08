@@ -46,6 +46,36 @@
   <p style="margin-top: 10px; font-weight: bold;">
     💡 <strong>Two-Way Data Binding:</strong> Los cambios se ven inmediatamente sin botones
   </p>
+  
+  <!-- COMPARACIÓN: Event Binding vs Two-Way Data Binding -->
+  <div style="margin-top: 20px; padding: 15px; border: 2px solid #ff6b6b; border-radius: 8px; background-color: #fff5f5;">
+    <h4>🔄 Comparación de Binding:</h4>
+    
+    <!-- EVENT BINDING: Necesita un evento (click) para ejecutar una función -->
+    <div style="margin: 10px 0;">
+      <label>Event Binding (con botón):</label>
+      <input 
+        #inputEvent 
+        placeholder="Escribe algo aquí" 
+        style="margin: 0 10px; padding: 5px; border: 1px solid #ccc;"
+      />
+      <button (click)="cambiarTexto(inputEvent.value)" style="padding: 5px 10px; background: #ff6b6b; color: white; border: none; border-radius: 4px;">
+        Cambiar Texto
+      </button>
+      <span style="margin-left: 10px;">Resultado: {{textoEvent}}</span>
+    </div>
+    
+    <!-- TWO-WAY DATA BINDING: Automático, sin botones -->
+    <div style="margin: 10px 0;">
+      <label>Two-Way Data Binding (automático):</label>
+      <input 
+        [(ngModel)]="textoTwoWay" 
+        placeholder="Escribe algo aquí" 
+        style="margin: 0 10px; padding: 5px; border: 1px solid #ccc;"
+      />
+      <span style="margin-left: 10px;">Resultado: {{textoTwoWay}}</span>
+    </div>
+  </div>
 </div>
 
 <!-- 5. DIRECTIVA ESTRUCTURAL *ngIf (DEPRECADO) vs @if (NUEVO) -->

@@ -34,4 +34,13 @@ export class App {
   
   // 3. DIRECTIVAS ESTRUCTURALES: Para *ngIf y @if
   usuarioActivo: boolean = true; // Controla si el usuario está activo
+  
+  // 4. EVENT BINDING: Propiedades para demostrar la diferencia con Two-Way Data Binding
+  textoEvent: string = 'Texto inicial'; // Para Event Binding (con botón)
+  textoTwoWay: string = 'Texto inicial'; // Para Two-Way Data Binding (automático)
+  
+  // 5. MÉTODO: Función que se ejecuta con Event Binding
+  cambiarTexto(nuevoTexto: string) {
+    this.textoEvent = nuevoTexto;
+  }
 }

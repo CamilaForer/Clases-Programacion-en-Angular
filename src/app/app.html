@@ -100,3 +100,33 @@
     }
   </ul>
 </div>
+
+<!-- 7. ngSwitch (DEPRECADO) vs @switch (NUEVO) -->
+<!-- Directiva para lógica condicional múltiple (como switch/case en JavaScript) -->
+
+<!-- VERSIÓN ANTIGUA (DEPRECADA): ngSwitch -->
+<div style="margin: 20px 0; padding: 15px; border: 2px solid #ff6b6b; border-radius: 8px; background-color: #fff5f5;">
+  <h4>⚠️ VERSIÓN ANTIGUA (Deprecada):</h4>
+  <!-- [ngSwitch] es property binding, *ngSwitchCase y *ngSwitchDefault son directivas estructurales -->
+  <div [ngSwitch]="usuarioActivo">
+    <p *ngSwitchCase="true" style="color: #00a80e;">Usuario activo (ngSwitch)</p>
+    <p *ngSwitchCase="false" style="color: #ff6b6b;">Usuario inactivo (ngSwitch)</p>
+    <p *ngSwitchDefault style="color: #ff6b6b;">Estado desconocido (ngSwitch)</p>
+  </div>
+</div>
+
+<!-- VERSIÓN NUEVA (RECOMENDADA): @switch -->
+<div style="margin: 20px 0; padding: 15px; border: 2px solid #51cf66; border-radius: 8px; background-color: #f8fff9;">
+  <h4>✅ VERSIÓN NUEVA (Recomendada):</h4>
+  @switch (usuarioActivo) {
+    @case (true) {
+      <p style="color: #015a07;">Usuario activo (@switch)</p>
+    }
+    @case (false) {
+      <p style="color: #ea4a15;">Usuario inactivo (@switch)</p>
+    }
+    @default {
+      <p style="color: #f7ff0b;">Estado desconocido (@switch)</p>
+    }
+  }
+</div>

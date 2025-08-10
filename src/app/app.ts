@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { PadreComponent } from './padre/padre';
 
 // ========================================
 // CONCEPTOS BÁSICOS DE ANGULAR - COMPONENTE
@@ -10,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 // Los decoradores son funciones que modifican clases, propiedades o métodos
 @Component({
   selector: 'app-root', // Selector CSS para usar este componente en otros templates
-  imports: [CommonModule, FormsModule], // Módulos necesarios para las directivas
+  imports: [CommonModule, FormsModule, PadreComponent], // Módulos necesarios para las directivas
   templateUrl: './app.html', // Archivo HTML del template
   styleUrl: './app.css' // Archivo CSS para estilos
 })
@@ -43,4 +44,19 @@ export class App {
   cambiarTexto(nuevoTexto: string) {
     this.textoEvent = nuevoTexto;
   }
+  
+  // ========================================
+  // PIPES: Para transformar datos en el template
+  // ========================================
+  
+  // Propiedades para demostrar DatePipe
+  fechaActual: Date = new Date();
+  fechaNacimiento: Date = new Date('1990-05-15');
+  fechaEvento: Date = new Date('2024-12-25T18:30:00');
+  
+  // Propiedades para demostrar UpperCasePipe y otros pipes
+  nombreUsuario: string = 'juan carlos pérez';
+  mensajeImportante: string = '¡este es un mensaje muy importante!';
+  precio: number = 1234.56;
+  porcentaje: number = 0.85;
 }

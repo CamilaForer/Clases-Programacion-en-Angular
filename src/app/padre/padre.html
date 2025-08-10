@@ -1,0 +1,65 @@
+<!-- ======================================== -->
+<!-- COMPONENTE PADRE - Ejemplo Simple -->
+<!-- ======================================== -->
+
+<div style="margin: 20px 0; padding: 20px; border: 3px solid #9C27B0; border-radius: 10px; background-color: #f8f0ff;">
+  <h2 style="color: #9C27B0; text-align: center;">👨‍👦 COMPONENTE PADRE</h2>
+  
+  <!-- ======================================== -->
+  <!-- @Input: Datos que se envían al hijo -->
+  <!-- ======================================== -->
+  
+  <div style="margin: 15px 0; padding: 15px; border: 2px solid #2196F3; border-radius: 8px; background-color: #f0f8ff;">
+    <h3 style="color: #2196F3;">📤 @Input - Datos enviados al Hijo:</h3>
+    
+    <div style="margin: 10px 0;">
+      <label style="display: block; margin-bottom: 5px; font-weight: bold;">
+        Mensaje para el Hijo:
+      </label>
+      <input 
+        [(ngModel)]="mensajeParaElHijo" 
+        placeholder="Escribe un mensaje"
+        style="width: 60%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;"
+      />
+    </div>
+    
+    <div style="margin: 10px 0;">
+      <label style="display: block; margin-bottom: 5px; font-weight: bold;">
+        Contador del Padre: {{contadorDelPadre}}
+      </label>
+      <button 
+        (click)="incrementarContador()" 
+        style="padding: 8px 15px; background: #2196F3; color: white; border: none; border-radius: 4px; cursor: pointer;"
+      >
+        Incrementar
+      </button>
+    </div>
+  </div>
+  
+  <!-- ======================================== -->
+  <!-- @Output: Datos recibidos del hijo -->
+  <!-- ======================================== -->
+  
+  <div style="margin: 15px 0; padding: 15px; border: 2px solid #FF9800; border-radius: 8px; background-color: #fff8f0;">
+    <h3 style="color: #FF9800;">📥 @Output - Datos recibidos del Hijo:</h3>
+    
+    <div style="margin: 10px 0;">
+      <strong>Mensaje del Hijo:</strong> 
+      <span style="color: #FF9800; font-style: italic;">"{{mensajeDelHijo}}"</span>
+    </div>
+  </div>
+  
+  <!-- ======================================== -->
+  <!-- COMPONENTE HIJO -->
+  <!-- ======================================== -->
+  
+  <app-hijo 
+    [mensajeDelPadre]="mensajeParaElHijo"
+    [contadorDelPadre]="contadorDelPadre"
+    (mensajeParaElPadre)="recibirMensajeDelHijo($event)"
+  ></app-hijo>
+  
+  <div style="text-align: center; margin-top: 15px; font-style: italic; color: #666;">
+    💡 Padre envía datos al hijo (@Input) y recibe eventos del hijo (@Output)
+  </div>
+</div>

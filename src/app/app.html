@@ -82,26 +82,26 @@
 <!-- Las directivas estructurales modifican la estructura del DOM (agregan/quitan elementos) -->
 
 <!-- VERSIÓN ANTIGUA (DEPRECADA): *ngIf -->
-<div style="margin: 20px 0; padding: 15px; border: 2px solid #ff6b6b; border-radius: 8px; background-color: #fff5f5;">
-  <h4>⚠️ VERSIÓN ANTIGUA (Deprecada):</h4>
+<div>
+  <h4>⚠️ VERSIÓN ANTIGUA (Deprecada): *ngIf</h4>
   <p *ngIf="usuarioActivo" style="color: #ff6b6b;">
-    Bienvenido usuario activo (*ngIf)
+    Bienvenido usuario activo
   </p>
   <p *ngIf="!usuarioActivo" style="color: #ff6b6b;">
-    Usuario inactivo (*ngIf)
+    Usuario inactivo
   </p>
 </div>
 
 <!-- VERSIÓN NUEVA (RECOMENDADA): @if -->
-<div style="margin: 20px 0; padding: 15px; border: 2px solid #51cf66; border-radius: 8px; background-color: #f8fff9;">
-  <h4>✅ VERSIÓN NUEVA (Recomendada):</h4>
+<div>
+  <h4>✅ VERSIÓN NUEVA (Recomendada): if</h4>
   @if (usuarioActivo) {
     <p style="color: #51cf66;">
-      Bienvenido usuario activo (@if)
+      Bienvenido usuario activo
     </p>
   } @else {
     <p style="color: #51cf66;">
-      Usuario inactivo (@if)
+      Usuario inactivo 
     </p>
   }
 </div>
@@ -110,22 +110,22 @@
 <!-- Crea elementos HTML repetitivos basados en datos -->
 
 <!-- VERSIÓN ANTIGUA (DEPRECADA): *ngFor -->
-<div style="margin: 20px 0; padding: 15px; border: 2px solid #ff6b6b; border-radius: 8px; background-color: #fff5f5;">
-  <h4>⚠️ VERSIÓN ANTIGUA (Deprecada):</h4>
+<div>
+  <h4>⚠️ VERSIÓN ANTIGUA (Deprecada): *ngFor</h4>
   <ul>
     <li *ngFor="let item of ['Angular', 'React', 'Vue']; let i = index" style="color: #ff6b6b;">
-      {{ i + 1 }}. {{ item }} (*ngFor)
+      {{ item }} (*ngFor)
     </li>
   </ul>
 </div>
 
 <!-- VERSIÓN NUEVA (RECOMENDADA): @for -->
-<div style="margin: 20px 0; padding: 15px; border: 2px solid #51cf66; border-radius: 8px; background-color: #f8fff9;">
-  <h4>✅ VERSIÓN NUEVA (Recomendada):</h4>
+<div>
+  <h4>✅ VERSIÓN NUEVA (Recomendada):for</h4>
   <ul>
     @for (item of ['Angular', 'React', 'Vue']; track item; let i = $index) {
       <li style="color: #51cf66;">
-        {{ i + 1 }}. {{ item }} (@for)
+       {{ item }}
       </li>
     }
   </ul>
@@ -135,28 +135,105 @@
 <!-- Directiva para lógica condicional múltiple (como switch/case en JavaScript) -->
 
 <!-- VERSIÓN ANTIGUA (DEPRECADA): ngSwitch -->
-<div style="margin: 20px 0; padding: 15px; border: 2px solid #ff6b6b; border-radius: 8px; background-color: #fff5f5;">
-  <h4>⚠️ VERSIÓN ANTIGUA (Deprecada):</h4>
+<div>
+  <h4>⚠️ VERSIÓN ANTIGUA (Deprecada): [ngSwitch]</h4>
   <!-- [ngSwitch] es property binding, *ngSwitchCase y *ngSwitchDefault son directivas estructurales -->
   <div [ngSwitch]="usuarioActivo">
-    <p *ngSwitchCase="true" style="color: #00a80e;">Usuario activo (ngSwitch)</p>
-    <p *ngSwitchCase="false" style="color: #ff6b6b;">Usuario inactivo (ngSwitch)</p>
-    <p *ngSwitchDefault style="color: #ff6b6b;">Estado desconocido (ngSwitch)</p>
+    <p *ngSwitchCase="true" style="color: #00a80e;">Usuario activo</p>
+    <p *ngSwitchCase="false" style="color: #ff6b6b;">Usuario inactivo </p>
+    <p *ngSwitchDefault style="color: #ff6b6b;">Estado desconocido</p>
   </div>
 </div>
 
 <!-- VERSIÓN NUEVA (RECOMENDADA): @switch -->
-<div style="margin: 20px 0; padding: 15px; border: 2px solid #51cf66; border-radius: 8px; background-color: #f8fff9;">
-  <h4>✅ VERSIÓN NUEVA (Recomendada):</h4>
+<div>
+  <h4>✅ VERSIÓN NUEVA (Recomendada): switch</h4>
   @switch (usuarioActivo) {
     @case (true) {
-      <p style="color: #015a07;">Usuario activo (@switch)</p>
+      <p style="color: #015a07;">Usuario activo </p>
     }
     @case (false) {
-      <p style="color: #ea4a15;">Usuario inactivo (@switch)</p>
+      <p style="color: #ea4a15;">Usuario inactivo</p>
     }
     @default {
-      <p style="color: #f7ff0b;">Estado desconocido (@switch)</p>
+      <p style="color: #f7ff0b;">Estado desconocido</p>
     }
   }
 </div>
+
+<!-- 8. PIPES: Transformación de datos en el template -->
+<!-- Los pipes transforman datos para mostrarlos de forma legible -->
+
+<div style="margin: 20px 0; padding: 20px; border: 3px solid #E91E63; border-radius: 10px; background-color: #fce4ec;">
+  <h2 style="color: #E91E63; text-align: center;">🔧 PIPES - Transformación de Datos</h2>
+  
+  <!-- DatePipe: Formateo de fechas -->
+  <div style="margin: 15px 0; padding: 15px; border: 2px solid #2196F3; border-radius: 8px; background-color: #f0f8ff;">
+    <h3 style="color: #2196F3;">📅 DatePipe - Formateo de Fechas:</h3>
+    
+    <div style="margin: 10px 0;">
+      <strong>Fecha Actual:</strong> 
+      <span style="color: #2196F3;">{{fechaActual | date}}</span>
+    </div>
+    
+    <div style="margin: 10px 0;">
+      <strong>Fecha con formato corto:</strong> 
+      <span style="color: #2196F3;">{{fechaActual | date:'short'}}</span>
+    </div>
+    
+    <div style="margin: 10px 0;">
+      <strong>Fecha con formato largo:</strong> 
+      <span style="color: #2196F3;">{{fechaActual | date:'fullDate'}}</span>
+    </div>
+    
+    <div style="margin: 10px 0;">
+      <strong>Fecha de nacimiento:</strong> 
+      <span style="color: #2196F3;">{{fechaNacimiento | date:'longDate'}}</span>
+    </div>
+    
+    <div style="margin: 10px 0;">
+      <strong>Fecha y hora del evento:</strong> 
+      <span style="color: #2196F3;">{{fechaEvento | date:'medium'}}</span>
+    </div>
+    
+    <div style="margin: 10px 0;">
+      <strong>Formato personalizado:</strong> 
+      <span style="color: #2196F3;">{{fechaActual | date:'dd/MM/yyyy HH:mm'}}</span>
+    </div>
+  </div>
+  
+  <!-- UpperCasePipe y otros pipes de texto -->
+    <h3 style="color: #4CAF50;">📝 Pipes de Texto:</h3>
+    <div style="margin: 10px 0;">
+      <strong>UpperCasePipe:</strong> 
+      <span style="color: #4CAF50; font-weight: bold;">{{nombreUsuario | uppercase}}</span>
+      <span>{{fechaActual | date | uppercase}}</span>
+    </div>
+
+  
+  <!-- Pipes numéricos -->
+  <div style="margin: 15px 0; padding: 15px; border: 2px solid #FF9800; border-radius: 8px; background-color: #fff8f0;">
+    <h3 style="color: #FF9800;">🔢 Pipes Numéricos:</h3>
+    
+    <div style="margin: 10px 0;">
+      <strong>Número original:</strong> 
+      <span style="color: #666;">{{precio}}</span>
+    </div>
+    
+    <div style="margin: 10px 0;">
+      <strong>CurrencyPipe:</strong> 
+      <span style="color: #FF9800; font-weight: bold;">{{precio | currency}}</span>
+    </div>
+    
+    <div style="margin: 10px 0;">
+      <strong>CurrencyPipe (EUR):</strong> 
+      <span style="color: #FF9800; font-weight: bold;">{{precio | currency:'EUR'}}</span>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================== -->
+<!-- 9. COMUNICACIÓN ENTRE COMPONENTES - PADRE E HIJO -->
+<!-- ======================================== -->
+
+<app-padre></app-padre>
